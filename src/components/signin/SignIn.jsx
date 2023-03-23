@@ -11,8 +11,6 @@ export default function SignIn() {
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
 
-	// const [state, setState] = useState({ user: null, password: null })
-
 	const submitHandler = (e) => {
 		e.preventDefault();
 		if (userName && password) {

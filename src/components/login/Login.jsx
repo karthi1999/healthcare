@@ -1,14 +1,32 @@
-import React from 'react';
-import Tabs from './tabs';
+import React, { useState } from 'react';
+import LoginTabs from './LoginTabs';
+import CompanyTabs from './CompanyTab';
+import DoctorTab from './DoctorTab';
+import EmployeeTab from './EmployeeTab';
 
 const Login = () => {
+  const tabs = [
+    { name: 'Company', component: CompanyTabs, current: true },
+    { name: 'Doctors', component: DoctorTab, current: false },
+    { name: 'Employee', component: EmployeeTab, current: false },
+  ]
+  const [currentTab, setCurrentTab] = useState(tabs[0]);
+  const renderTab = (tab) => {
+    const Component = tab.component;
+    return <Component />;
+  };
   return (
     <div>
       <div className="py-3">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 text-center">
           <h1 className="text-xl font-bold text-gray-900">Login In Creation</h1>
         </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><Tabs /></div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 pt-3 sm:pt-0">
+          <LoginTabs tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} />
+        </div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+          {renderTab(currentTab)}
+        </div>
       </div>
       {/* <div className="pt-8">
         <div>

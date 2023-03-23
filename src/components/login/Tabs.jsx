@@ -1,7 +1,22 @@
+/*
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+*/
 const tabs = [
+  { name: 'My Account', href: '#', current: false },
   { name: 'Company', href: '#', current: false },
-  { name: 'Doctors', href: '#', current: true },
-  { name: 'Employee', href: '#', current: false },
+  { name: 'Team Members', href: '#', current: true },
+  { name: 'Billing', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -10,7 +25,7 @@ function classNames(...classes) {
 
 export default function Tabs() {
   return (
-    <div className="pt-4">
+    <div>
       <div className="sm:hidden">
         <label htmlFor="tabs" className="sr-only">
           Select a tab
@@ -19,7 +34,7 @@ export default function Tabs() {
         <select
           id="tabs"
           name="tabs"
-          className="block w-full rounded-md border-gray-300 focus:border-primary focus:ring-primary"
+          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
           defaultValue={tabs.find((tab) => tab.current).name}
         >
           {tabs.map((tab) => (
@@ -27,23 +42,23 @@ export default function Tabs() {
           ))}
         </select>
       </div>
-      <div className="hidden sm:block px-6">
-        <div className="border-b-2 border-gray-200">
-          <nav className="-mb-px flex justify-center" aria-label="Tabs">
-            {tabs.map((tab, index) => (
-              <div
-                key={index}
+      <div className="hidden sm:block">
+        <div className="border-b border-gray-200">
+          <nav className="-mb-px flex" aria-label="Tabs">
+            {tabs.map((tab) => (
+              <a
+                key={tab.name}
                 href={tab.href}
                 className={classNames(
                   tab.current
-                    ? 'border-primary text-primary'
+                    ? 'border-indigo-500 text-indigo-600'
                     : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                  'w-1/3 border-b-4 py-4 px-1 text-center text-sm font-medium'
+                  'w-1/4 border-b-2 py-4 px-1 text-center text-sm font-medium'
                 )}
                 aria-current={tab.current ? 'page' : undefined}
               >
                 {tab.name}
-              </div>
+              </a>
             ))}
           </nav>
         </div>

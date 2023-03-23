@@ -198,7 +198,7 @@ export default function Example() {
 					</div>
 				</div>
 				<div className="flex flex-1 flex-col lg:pl-64">
-					<div className="sticky top-0 z-10 flex h-16 flex-shrink-0">
+					<div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow-lg lg:bg-transparent lg:shadow-transparent">
 						<button
 							type="button"
 							className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden"
@@ -214,7 +214,7 @@ export default function Example() {
 							<div className="ml-4 flex items-center lg:ml-6 gap-4">
 								<div
 									type="button"
-									className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500"
+									className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 hidden sm:flex"
 								>
 									<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
 										className='w-10 h-10 stroke-primary' viewBox="0 0 136.000000 147.000000"
@@ -230,29 +230,30 @@ export default function Example() {
 								</div>
 								<div
 									type="button"
+									className='hidden sm:flex'
 								>
 									<img src={square} width='33px' />
 								</div>
 								<div
 									type="button"
-									className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500"
+									className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 hidden sm:flex"
 								>
 									<img src={status} width='43px' />
 								</div>
 								<div
 									type="button"
-									className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500"
+									className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 hidden sm:flex"
 								>
 									<img src={chat} width='35px' />
 								</div>
-								<div className='text-right'>
+								<div className='text-right hidden sm:block'>
 									<p className='text-xs font-bold'>Marvin McKinney</p>
 									<p className='text-xs'>Admin</p>
 								</div>
 								{/* Profile dropdown */}
-								<Menu as="div" className="relative ml-3 rounded-lg text-primary font-semibold bg-gray-200 px-2 py-1">
-									<div>
-										<Menu.Button className="flex max-w-xs items-center text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+								<Menu as="div" className="relative ml-3">
+									<div className=''>
+										<Menu.Button className="flex max-w-xs items-center justify-center text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-lg text-primary font-semibold bg-gray-200 w-10 h-10 ml-auto">
 											<span className="sr-only">Open user menu</span>
 											<p>M</p>
 										</Menu.Button>
