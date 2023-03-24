@@ -2,8 +2,8 @@ import React from 'react'
 
 const SearchComponent = () => {
   return (
-    <div className="flex justify-center">
-      <div className="md:w-80">
+    <div className="flex justify-start w-full">
+      <div className="w-full md:w-80">
         <div className="relative flex w-full flex-wrap items-stretch">
           <svg
             xmlns="http://www.w3.org/2000/svg"

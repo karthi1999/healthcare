@@ -1,4 +1,5 @@
 import { useState } from "react";
+import UpdateBtn from "../baseComponents/UpdateBtn";
 
 export default function CompanyTabs() {
   const [hide, setHide] = useState(true);
@@ -7,7 +8,7 @@ export default function CompanyTabs() {
     <div>
       <div className='flex flex-col sm:flex-row w-full gap-10 pt-5'>
         <div className='w-full'>
-          <label htmlFor="email" className="block text-sm font-normal leading-6 text-gray-900">
+          <label htmlFor="company_name" className="block text-sm font-normal leading-6 text-gray-900">
             Company Name
           </label>
           <div className="mt-2 rounded-md shadow-sm">
@@ -15,12 +16,12 @@ export default function CompanyTabs() {
               type="text"
               name="company name"
               id="company_name"
-              className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 focus-within:outline-none py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
             />
           </div>
         </div>
         <div className='w-full'>
-          <label htmlFor="email" className="block text-sm font-normal leading-6 text-gray-900">
+          <label htmlFor="Toc" className="block text-sm font-normal leading-6 text-gray-900">
             Type of Company
           </label>
           <div className="mt-2 rounded-md shadow-sm">
@@ -28,7 +29,7 @@ export default function CompanyTabs() {
               type="text"
               name="Type of Company"
               id="Toc"
-              className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 focus-within:outline-none py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -36,7 +37,7 @@ export default function CompanyTabs() {
       <div className='flex flex-col sm:flex-row w-full gap-10 pt-5'>
         <div className='flex  flex-col sm:flex-row w-full gap-5'>
           <div className='w-full'>
-            <label htmlFor="email" className="block text-sm font-normal leading-6 text-gray-900">
+            <label htmlFor="Mobile_Number" className="block text-sm font-normal leading-6 text-gray-900">
               Mobile Number
             </label>
             <div className="mt-2 rounded-md shadow-sm">
@@ -44,27 +45,27 @@ export default function CompanyTabs() {
                 type="text"
                 name="Mobile Number"
                 id="Mobile_Number"
-                className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 focus-within:outline-none py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
               />
             </div>
           </div>
           <div className='w-full'>
-            <label htmlFor="email" className="block text-sm font-normal leading-6 text-gray-900">
+            <label htmlFor="Mail_ID" className="block text-sm font-normal leading-6 text-gray-900">
               Mail ID
             </label>
             <div className="mt-2 rounded-md shadow-sm">
               <input
-                type="text"
+                type="email"
                 name="Mail ID"
                 id="Mail_ID"
-                className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 focus-within:outline-none py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
               />
             </div>
           </div>
         </div>
 
         <div className='w-full'>
-          <label htmlFor="email" className="block text-sm font-normal leading-6 text-gray-900">
+          <label htmlFor="Noe" className="block text-sm font-normal leading-6 text-gray-900">
             Number of Employees
           </label>
           <div className="mt-2 rounded-md shadow-sm">
@@ -72,14 +73,14 @@ export default function CompanyTabs() {
               type="text"
               name="Number of Employees"
               id="Noe"
-              className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 focus-within:outline-none py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
             />
           </div>
         </div>
       </div>
       <div className='flex flex-col sm:flex-row w-full gap-10 pt-5'>
         <div className='w-full'>
-          <label htmlFor="email" className="block text-sm font-normal leading-6 text-gray-900">
+          <label htmlFor="Contact_Person" className="block text-sm font-normal leading-6 text-gray-900">
             Contact Person
           </label>
           <div className="mt-2 rounded-md shadow-sm">
@@ -87,12 +88,12 @@ export default function CompanyTabs() {
               type="text"
               name="Contact Person"
               id="Contact_Person"
-              className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 focus-within:outline-none py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
             />
           </div>
         </div>
         <div className='w-full'>
-          <label htmlFor="email" className="block text-sm font-normal leading-6 text-gray-900">
+          <label htmlFor="Eyp" className="block text-sm font-normal leading-6 text-gray-900">
             Enter Your Password
           </label>
           <div className="mt-2 relative rounded-md shadow-sm">
@@ -100,7 +101,7 @@ export default function CompanyTabs() {
               type={`${hide ? 'password' : 'text'}`}
               name="Enter Your Password"
               id="Eyp"
-              className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 focus-within:outline-none py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
             />
             {hide ?
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" className="w-6 h-6 absolute right-4 top-1.5 stroke-gray-400" onClick={() => { setHide(false) }}>
@@ -116,7 +117,7 @@ export default function CompanyTabs() {
       </div>
       <div className='flex flex-col sm:flex-row w-full gap-10 pt-5'>
         <div className='w-full'>
-          <label htmlFor="email" className="block text-sm font-normal leading-6 text-gray-900">
+          <label htmlFor="Company_Address" className="block text-sm font-normal leading-6 text-gray-900">
             Company Address
           </label>
           <div className="mt-2 sm:col-span-2">
@@ -124,13 +125,13 @@ export default function CompanyTabs() {
               id="Company_Address"
               name="Company Address"
               rows={3}
-              className="block w-full max-w-lg py-1.5 pl-4 rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:py-1.5 sm:text-sm sm:leading-6"
+              className="block w-full py-1.5 pl-4 rounded-md border-0 focus-within:outline-none text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:py-1.5 sm:text-sm sm:leading-6"
               defaultValue={''}
             />
           </div>
         </div>
         <div className='w-full'>
-          <label htmlFor="email" className="block text-sm font-normal leading-6 text-gray-900">
+          <label htmlFor="Ryp" className="block text-sm font-normal leading-6 text-gray-900">
             Re-Enter Your Password
           </label>
           <div className="mt-2 relative rounded-md shadow-sm">
@@ -138,7 +139,7 @@ export default function CompanyTabs() {
               type={`${hide ? 'password' : 'text'}`}
               name="Re-Enter Your Password"
               id="Ryp"
-              className="block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 focus-within:outline-none py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
             />
             {hide ?
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" className="w-6 h-6 absolute right-4 top-1.5 stroke-gray-400" onClick={() => { setHide(false) }}>
@@ -155,36 +156,7 @@ export default function CompanyTabs() {
       <div className='flex flex-col sm:flex-row w-full gap-10 pt-5'>
         <div className='w-full'>
         </div>
-        <div className='flex justify-between w-full'>
-          <button
-            type="button"
-            className="w-24 inline-flex items-center gap-x-2 rounded-md bg-primary py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-primary hover:bg-opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
-            Add
-          </button>
-          <button
-            type="button"
-            className="w-24 inline-flex items-center gap-x-2 rounded-md bg-primary py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-primary hover:bg-opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
-            </svg>
-
-            Edit
-          </button>
-          <button
-            type="button"
-            className="w-24 inline-flex items-center gap-x-2 rounded-md bg-primary py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-primary hover:bg-opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-            </svg>
-            Delete
-          </button>
-        </div>
+        <UpdateBtn />
       </div>
     </div>
   )

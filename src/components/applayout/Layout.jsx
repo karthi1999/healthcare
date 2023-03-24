@@ -27,7 +27,12 @@ function classNames(...classes) {
 }
 
 export default function Example() {
-	const [sidebarOpen, setSidebarOpen] = useState(false)
+	const [sidebarOpen, setSidebarOpen] = useState(false);
+	const [nav, setNav] = useState('Log In');
+
+	const mainNavHandler = (value) => {
+		setNav(value)
+	}
 
 	return (
 		<>
@@ -56,7 +61,7 @@ export default function Example() {
 								leaveFrom="translate-x-0"
 								leaveTo="-translate-x-full"
 							>
-								<Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-white pt-5 pb-4">
+								<Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-primary pt-5 pb-4">
 									<Transition.Child
 										as={Fragment}
 										enter="ease-in-out duration-300"
@@ -69,7 +74,7 @@ export default function Example() {
 										<div className="absolute top-0 right-0 -mr-12 pt-2">
 											<button
 												type="button"
-												className="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+												className="flex h-10 w-10 items-center justify-center focus:outline-none"
 												onClick={() => setSidebarOpen(false)}
 											>
 												<span className="sr-only">Close sidebar</span>
@@ -78,34 +83,35 @@ export default function Example() {
 										</div>
 									</Transition.Child>
 									<div className="flex flex-shrink-0 items-center px-4">
-										<img
-											className="h-8 w-auto"
-											src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-											alt="Your Company"
-										/>
+										<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="50pt" height="50pt" viewBox="0 0 475.000000 462.000000" preserveAspectRatio="xMidYMid meet">
+											<g transform="translate(0.000000,462.000000) scale(0.100000,-0.100000)" fill="white">
+												<path d="M1760 3994 c-42 -18 -76 -49 -98 -89 -15 -27 -17 -90 -20 -567 l-3 -538 -532 0 c-597 0 -569 3 -632 -74 l-30 -38 -3 -194 -3 -194 608 0 c527 0 611 -2 630 -15 12 -8 63 -96 114 -195 51 -99 95 -180 98 -180 3 0 62 184 130 408 68 224 130 422 137 439 25 64 108 66 133 5 6 -15 65 -205 131 -422 66 -217 124 -406 128 -419 7 -22 21 0 108 164 70 135 106 193 124 202 19 10 167 13 628 13 l604 0 -4 188 c-3 175 -5 189 -26 224 -13 20 -40 47 -60 60 l-37 23 -540 5 -540 5 -5 541 -5 540 -27 41 c-16 24 -44 49 -70 62 -43 20 -56 21 -474 21 -360 -1 -435 -3 -464 -16z" />
+												<path d="M2202 2418 c-12 -35 -64 -205 -117 -378 -53 -173 -101 -330 -107 -348 -17 -55 -86 -74 -121 -34 -8 10 -69 124 -137 255 l-122 237 -579 0 -579 0 0 -179 c0 -191 5 -219 48 -264 61 -64 35 -62 619 -65 l532 -3 3 -532 c3 -474 5 -535 20 -562 22 -40 66 -81 101 -94 18 -7 180 -11 463 -11 407 0 437 1 472 19 42 22 63 43 86 88 14 28 16 93 16 562 l0 530 533 3 c517 3 533 4 572 24 22 11 54 40 70 63 l30 43 3 189 4 189 -582 -2 -582 -3 -128 -244 c-134 -257 -153 -281 -202 -262 -13 5 -29 15 -35 22 -6 8 -66 194 -133 414 -67 220 -123 401 -125 403 -2 2 -12 -25 -23 -60z" />
+											</g>
+										</svg>
 									</div>
 									<div className="mt-5 h-0 flex-1 overflow-y-auto">
 										<nav className="space-y-1 px-2">
 											{navigation.map((item) => (
-												<a
+												<div
 													key={item.name}
-													href={item.href}
+													onClick={() => mainNavHandler(item.name)}
 													className={classNames(
-														item.current
+														item.name === nav
 															? 'bg-gray-100 text-gray-900'
-															: 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+															: 'text-white hover:bg-gray-50 hover:text-gray-900',
 														'group flex items-center rounded-md px-2 py-2 text-base font-medium'
 													)}
 												>
 													<item.icon
 														className={classNames(
-															item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
+															item.name === nav ? 'text-gray-500' : 'text-white group-hover:text-gray-500',
 															'mr-4 h-6 w-6 flex-shrink-0'
 														)}
 														aria-hidden="true"
 													/>
 													{item.name}
-												</a>
+												</div>
 											))}
 										</nav>
 									</div>
@@ -161,21 +167,21 @@ export default function Example() {
 								</a>
 								<div className='border-b-2 pb-3'>
 									{navigation.map((item, i) => (
-										<a
+										<div
 											key={i}
-											href={item.href}
+											onClick={() => mainNavHandler(item.name)}
 											className={classNames(
-												item.current ? 'bg-white text-primary shadow-md' : 'text-white hover:bg-white hover:bg-opacity-75',
+												item.name === nav ? 'bg-white text-primary shadow-md' : 'text-white hover:bg-white hover:bg-opacity-75',
 												'group flex items-center rounded-3xl px-4 py-2 text-xs font-semibold'
 											)}
 										>
 											<item.icon className="mr-3 h-5 w-5 flex-shrink-0 text-primary-300" aria-hidden="true" />
 											{item.name}
-											{item.name === 'Log In' &&
+											{item.name === nav &&
 												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="w-3 h-3 ml-auto">
 													<path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
 												</svg>}
-										</a>
+										</div>
 									))}
 								</div>
 							</nav>
@@ -201,14 +207,14 @@ export default function Example() {
 					<div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow-lg lg:bg-transparent lg:shadow-transparent">
 						<button
 							type="button"
-							className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden"
+							className="px-2 pl-4 text-gray-500 focus:outline-none lg:hidden hover:text-primary focus:text-primary"
 							onClick={() => setSidebarOpen(true)}
 						>
 							<span className="sr-only">Open sidebar</span>
 							<Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
 						</button>
 						<div className="flex flex-1 justify-between items-center px-4">
-							<div className="flex flex-1">
+							<div className="flex flex-1 w-full">
 								<SearchComponent />
 							</div>
 							<div className="ml-4 flex items-center lg:ml-6 gap-4">
@@ -253,7 +259,7 @@ export default function Example() {
 								{/* Profile dropdown */}
 								<Menu as="div" className="relative ml-3">
 									<div className=''>
-										<Menu.Button className="flex max-w-xs items-center justify-center text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-lg text-primary font-semibold bg-gray-200 w-10 h-10 ml-auto">
+										<Menu.Button className="flex max-w-xs items-center justify-center text-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg text-primary font-semibold bg-gray-200 w-10 h-10 ml-auto">
 											<span className="sr-only">Open user menu</span>
 											<p>M</p>
 										</Menu.Button>
