@@ -9,6 +9,7 @@ import square from '../../img/square.png';
 import status from '../../img/status.png'
 import chat from '../../img/chat.png'
 import Login from '../login/Login';
+import Doctors from '../doctors/Doctors';
 
 const navigation = [
 	{ name: 'Log In', href: '#', icon: HiOutlineTemplate, current: true },
@@ -203,7 +204,7 @@ export default function Example() {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-1 flex-col lg:pl-64">
+				<div className="flex flex-1 flex-col lg:pl-72">
 					<div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow-lg lg:bg-transparent lg:shadow-transparent">
 						<button
 							type="button"
@@ -213,7 +214,7 @@ export default function Example() {
 							<span className="sr-only">Open sidebar</span>
 							<Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
 						</button>
-						<div className="flex flex-1 justify-between items-center px-4">
+						<div className="flex flex-1 justify-between items-center px-4 bg-white">
 							<div className="flex flex-1 w-full">
 								<SearchComponent />
 							</div>
@@ -253,8 +254,8 @@ export default function Example() {
 									<img src={chat} width='35px' />
 								</div>
 								<div className='text-right hidden sm:block'>
-									<p className='text-xs font-bold'>Marvin McKinney</p>
-									<p className='text-xs'>Admin</p>
+									<p className='text-xs font-bold text-primary'>Marvin McKinney</p>
+									<p className='text-xs text-primary'>Admin</p>
 								</div>
 								{/* Profile dropdown */}
 								<Menu as="div" className="relative ml-3">
@@ -297,8 +298,11 @@ export default function Example() {
 						</div>
 					</div>
 
-					<main className="flex-1">
-						<Login />
+					<main className="flex-1 pr-4">
+						{nav === 'Log In'
+							? <Login />
+							: <Doctors />
+						}
 					</main>
 				</div>
 			</div >

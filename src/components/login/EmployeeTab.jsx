@@ -1,209 +1,46 @@
-import UpdateBtn from "../baseComponents/UpdateBtn";
-import UploadPhotoInp from "../baseComponents/UploadPhotoInp";
+import { employeeTabFields } from "../../assets/employeeTab";
+import FieldComponent from "../baseComponents/FieldComponent";
 
-export default function EmployeeTabs() {
+export default function DoctorTabs() {
 
   return (
     <div>
-      <div className='flex flex-col sm:flex-row w-full gap-10 pt-5'>
-        <div className='w-full'>
-          <label htmlFor="name_emp" className="block text-sm font-normal leading-6 text-gray-900">
-            Name
-          </label>
-          <div className="mt-2 rounded-md shadow-sm">
-            <input
-              type="text"
-              name="name emp"
-              id="name_emp"
-              className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-            />
-          </div>
-        </div>
-        <div className='w-full'>
-          <div className="flex gap-5">
-            <div className="w-2/5">
-              <label htmlFor="age_emp" className="block text-sm font-normal leading-6 text-gray-900">
-                Age
-              </label>
-              <div className="mt-2 rounded-md shadow-sm">
-                <input
-                  type="text"
-                  name="Age"
-                  id="age_emp"
-                  className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div className="w-full">
-              <label htmlFor="emp" className="block text-sm font-normal leading-6 text-gray-900">
-                Gender
-              </label>
-              <div className="mt-2 rounded-md shadow-sm">
-                <input
-                  type="text"
-                  name="Gender emp"
-                  id="emp"
-                  className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="grid sm:grid-cols-12 w-full gap-10 pt-5">
+        {
+          Array.isArray(employeeTabFields) && employeeTabFields.length ?
+            employeeTabFields.map((fieldData, index) => <FieldComponent key={index} fieldData={fieldData} />) : ""
+        }
       </div>
-      <div className='flex flex-col sm:flex-row w-full gap-10 pt-5'>
-        <div className='flex  flex-col sm:flex-row w-full gap-5'>
-          <div className='w-full'>
-            <label htmlFor="Employee_ID" className="block text-sm font-normal leading-6 text-gray-900">
-              Employee ID
-            </label>
-            <div className="mt-2 rounded-md shadow-sm">
-              <input
-                type="text"
-                name="Employee ID"
-                id="Employee_ID"
-                className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div className='w-full'>
-            <label htmlFor="Job_Role" className="block text-sm font-normal leading-6 text-gray-900">
-              Job Role
-            </label>
-            <div className="mt-2 rounded-md shadow-sm">
-              <input
-                type="text"
-                name="Job Role"
-                id="Job_Role"
-                className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-        </div>
+      <div className='grid sm:grid-cols-12 w-full pt-5 justify-items-stretch sm:pl-12'>
+        <div className="flex col-span-12 sm:col-start-7 gap-10 justify-between">
+          <button
+            type="button"
+            className="w-24 inline-flex items-center gap-x-2 rounded-md bg-primary py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-primary hover:bg-opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Add
+          </button>
+          <button
+            type="button"
+            className="w-24 inline-flex items-center gap-x-2 rounded-md bg-primary py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-primary hover:bg-opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+            </svg>
 
-        <div className='w-full'>
-          <div className='flex  flex-col sm:flex-row w-full gap-5'>
-            <div className='w-full'>
-              <label htmlFor="Mobile_Number_Emp" className="block text-sm font-normal leading-6 text-gray-900">
-                Mobile Number
-              </label>
-              <div className="mt-2 rounded-md shadow-sm">
-                <input
-                  type="text"
-                  name="Mobile Number"
-                  id="Mobile_Number_Emp"
-                  className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div className='w-full'>
-              <label htmlFor="Mail_ID" className="block text-sm font-normal leading-6 text-gray-900">
-                Mail ID
-              </label>
-              <div className="mt-2 rounded-md shadow-sm">
-                <input
-                  type="email"
-                  name="Mail ID"
-                  id="Mail_ID"
-                  className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className='flex flex-col sm:flex-row w-full gap-10 pt-5'>
-        <div className="w-full">
-          <div className='flex  flex-col sm:flex-row w-full gap-5'>
-            <div className='w-full'>
-              <label htmlFor="Company_Name_Emp" className="block text-sm font-normal leading-6 text-gray-900">
-                Company Name
-              </label>
-              <div className="mt-2 rounded-md shadow-sm">
-                <input
-                  type="text"
-                  name="Company Name"
-                  id="Company_Name_Emp"
-                  className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div className='w-full'>
-              <label htmlFor="Marital_Status" className="block text-sm font-normal leading-6 text-gray-900">
-                Marital Status
-              </label>
-              <div className="mt-2 rounded-md shadow-sm">
-                <input
-                  type="text"
-                  name="Marital Status"
-                  id="Marital_Status"
-                  className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-          </div>
-          <div className='w-full pt-5'>
-            <div className="flex gap-5">
-              <div className="w-full">
-                <label htmlFor="Family_Members" className="block text-sm font-normal leading-6 text-gray-900">
-                  Family Members
-                </label>
-                <div className="mt-2 rounded-md shadow-sm">
-                  <input
-                    type="text"
-                    name="Family Members"
-                    id="Family_Members"
-                    className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-              <div className="w-full">
-                <label htmlFor="Relation" className="block text-sm font-normal leading-6 text-gray-900">
-                  Relation
-                </label>
-                <div className="mt-2 rounded-md shadow-sm">
-                  <input
-                    type="text"
-                    name="Relation"
-                    id="Relation"
-                    className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-              <div className="w-2/5">
-                <label htmlFor="Age2" className="block text-sm font-normal leading-6 text-gray-900">
-                  Age
-                </label>
-                <div className="mt-2 rounded-md shadow-sm">
-                  <input
-                    type="text"
-                    name="Age2"
-                    id="Age2"
-                    className="block w-full rounded-md focus-within:outline-none border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='w-full pt-5'>
-            <label htmlFor="Address" className="block text-sm font-normal leading-6 text-gray-900">
-              Address
-            </label>
-            <div className="mt-2 sm:col-span-2">
-              <textarea
-                id="Address"
-                name="Address"
-                rows={3}
-                className="block w-full py-1.5 pl-4 rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:py-1.5 sm:text-sm sm:leading-6 focus:outline-none"
-                defaultValue={''}
-              />
-            </div>
-          </div>
-        </div>
-        <div className='w-full'>
-          <UploadPhotoInp />
-          <div className="pt-12">
-            <UpdateBtn />
-          </div>
+            Edit
+          </button>
+          <button
+            type="button"
+            className="w-24 inline-flex items-center gap-x-2 rounded-md bg-primary py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-primary hover:bg-opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+            </svg>
+            Delete
+          </button>
         </div>
       </div>
     </div>

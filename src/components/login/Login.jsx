@@ -18,13 +18,13 @@ const Login = () => {
   return (
     <div>
       <div className="py-3">
-        <div className="mx-auto max-w-7xl px-4 py-3 sm:py-0 sm:px-6 lg:px-10 text-center">
+        <div className="px-4 py-3 sm:py-0 sm:px-6 lg:px-10 text-center">
           <h1 className="text-2xl sm:text-xl font-bold text-gray-900">Login In Creation</h1>
         </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 pt-3 sm:pt-0">
+        <div className="px-4 sm:px-6 lg:px-10 pt-3 sm:pt-0">
           <LoginTabs tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} />
         </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <div className="px-4 sm:px-6 lg:px-10">
           {renderTab(currentTab)}
         </div>
       </div>

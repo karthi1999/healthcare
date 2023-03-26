@@ -64,9 +64,9 @@ export const doctorTabFields = [
     },
     {
         type: 'password',
-        id: 'confirm_password',
+        id: 'confirm_password_sm',
         name: 'confirmPassword',
-        className: 'col-span-12 sm:col-span-6 sm:hidden',
+        className: 'col-span-12 sm:col-span-6 sm:hidden block',
         labelClassName: null,
         fieldClassName: null,
         label: 'Re-Enter Your Password',

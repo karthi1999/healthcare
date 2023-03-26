@@ -6,7 +6,7 @@ import TextArea from "../baseComponents/TextArea";
 
 const FieldComponent = (
     {
-        fieldData={}
+        fieldData = {}
     }
 ) => {
 
@@ -14,11 +14,11 @@ const FieldComponent = (
         const {
             type,
             id,
-            name='',
-            className='',
-            labelClassName='',
-            fieldClassName='',
-            label='',
+            name = '',
+            className = '',
+            labelClassName = '',
+            fieldClassName = '',
+            label = '',
         } = fieldData
         const [hide, setHide] = useState(true);
         switch (type) {
@@ -83,7 +83,7 @@ const FieldComponent = (
                         <div
                             className="w-2/4 h-40 lg:h-48 xl:h-56 mt-2 flex justify-center items-center rounded-lg bg-black bg-opacity-10 border-gray-900/25 relative"
                             htmlFor="file-upload">
-                            <div className="relative z-10 flex justify-center items-center rounded-md shadow-sm text-sm font-medium focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary w-full h-full">
+                            <div className="relative z-5 flex justify-center items-center rounded-md shadow-sm text-sm font-medium focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary w-full h-full">
                                 <Input
                                     id={id}
                                     type={'file'}
