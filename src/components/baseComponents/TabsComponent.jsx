@@ -1,32 +1,23 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
+export default function TabsComponent(
+  {
+    tabs,
+    setTabs,
   }
-  ```
-*/
-import { useState } from "react";
-
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
-export default function LoginTabs({ tabs, currentTab, setCurrentTab }) {
-  const [state, setState] = useState('Company');
-  const tabsHandler = (values) => {
-    setState(values.name);
-    tabs.filter(item => item.name == values.name)[0].current = true;
-    tabs.filter(item => item.name == state)[0].current = false;
-    setCurrentTab(values);
+) {
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
   }
+  const tabsHandler = (tab) => {
+    const updatedTab = tabs.map(tabItem => {
+      if (tabItem === tab) {
+        return { ...tabItem, current: true };
+      } else {
+        return { ...tabItem, current: false };
+      }
+    });
+    setTabs(updatedTab);
+  };
+
   return (
     <div>
       <div className="sm:hidden">
@@ -54,10 +45,10 @@ export default function LoginTabs({ tabs, currentTab, setCurrentTab }) {
                 key={tab.name}
                 onClick={() => { tabsHandler(tab) }}
                 className={classNames(
-                  currentTab.name == tab.name
+                  tab.current
                     ? 'border-b-4 border-primary text-primary'
                     : 'text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                  'w-1/2 border-b-2 py-4 pb-2 px-1 text-center text-base font-medium cursor-pointer'
+                  'w-1/2 border-b-2 pb-2 px-1 text-center text-base font-medium cursor-pointer'
                 )}
                 aria-current={tab.current ? 'page' : undefined}
               >

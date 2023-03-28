@@ -2,7 +2,7 @@ import React from 'react'
 
 const UpdateBtn = () => {
   return (
-    <div className='flex justify-between w-full'>
+    <div className="flex col-span-12 sm:col-start-7 gap-10 justify-between">
       <button
         type="button"
         className="w-24 inline-flex items-center gap-x-2 rounded-md bg-primary py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-primary hover:bg-opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"

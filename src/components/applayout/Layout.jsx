@@ -8,17 +8,12 @@ import SearchComponent from '../baseComponents/SearchComponent';
 import square from '../../img/square.png';
 import status from '../../img/status.png'
 import chat from '../../img/chat.png'
-import Login from '../login/Login';
-import Doctors from '../doctors/Doctors';
+import LoginComponent from '../loginComponent/LoginComponent';
+import DoctorsComponent from '../doctorsComponent/DoctorsComponent';
+import RequestsComponent from '../requestComponent/RequestsComponent';
+import DataComponent from '../dataComponent/dataComponent';
+import OffersComponent from '../offersComponent/OffersComponent';
 
-const navigation = [
-	{ name: 'Log In', href: '#', icon: HiOutlineTemplate, current: true },
-	{ name: 'Doctors', href: '#', icon: HiOutlineUser, current: false },
-	{ name: 'Company & Employee', href: '#', icon: HiOutlineUser, current: false },
-	{ name: 'Request', href: '#', icon: MdChatBubbleOutline, current: false },
-	{ name: 'Data', href: '#', icon: MdChatBubbleOutline, current: false },
-	{ name: 'Offers', href: '#', icon: AiOutlineExclamationCircle, current: false },
-]
 const userNavigation = [
 	{ name: 'Sign out', href: '/' },
 ]
@@ -29,12 +24,24 @@ function classNames(...classes) {
 
 export default function Example() {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
-	const [nav, setNav] = useState('Log In');
-
-	const mainNavHandler = (value) => {
-		setNav(value)
-	}
-
+	const [navigation, setNavigation] = useState([
+		{ name: 'Log In', href: '#', icon: HiOutlineTemplate, current: true, title: 'Login In Creation', component: LoginComponent },
+		{ name: 'Doctors', href: '#', icon: HiOutlineUser, current: false, title: 'Doctors', component: DoctorsComponent },
+		{ name: 'Company & Employee', href: '#', icon: HiOutlineUser, current: false, title: 'Company & Employee', component: DoctorsComponent },
+		{ name: 'Request', href: '#', icon: MdChatBubbleOutline, current: false, title: 'Mail Request', component: RequestsComponent },
+		{ name: 'Data', href: '#', icon: MdChatBubbleOutline, current: false, title: 'Deleted Employees & Doctors', component: DataComponent },
+		{ name: 'Offers', href: '#', icon: AiOutlineExclamationCircle, current: false, title: 'Upload Offers', component: OffersComponent },
+	])
+	const handleClick = (item) => {
+		const updatedNavigation = navigation.map(navItem => {
+			if (navItem === item) {
+				return { ...navItem, current: true };
+			} else {
+				return { ...navItem, current: false };
+			}
+		});
+		setNavigation(updatedNavigation);
+	};
 	return (
 		<>
 			<div>
@@ -96,9 +103,9 @@ export default function Example() {
 											{navigation.map((item) => (
 												<div
 													key={item.name}
-													onClick={() => mainNavHandler(item.name)}
+													onClick={() => handleClick(item)}
 													className={classNames(
-														item.name === nav
+														item.current
 															? 'bg-gray-100 text-gray-900'
 															: 'text-white hover:bg-gray-50 hover:text-gray-900',
 														'group flex items-center rounded-md px-2 py-2 text-base font-medium'
@@ -106,7 +113,7 @@ export default function Example() {
 												>
 													<item.icon
 														className={classNames(
-															item.name === nav ? 'text-gray-500' : 'text-white group-hover:text-gray-500',
+															item.current ? 'text-gray-500' : 'text-white group-hover:text-gray-500',
 															'mr-4 h-6 w-6 flex-shrink-0'
 														)}
 														aria-hidden="true"
@@ -170,15 +177,16 @@ export default function Example() {
 									{navigation.map((item, i) => (
 										<div
 											key={i}
-											onClick={() => mainNavHandler(item.name)}
+											aria-current={item.current ? 'page' : undefined}
+											onClick={() => handleClick(item)}
 											className={classNames(
-												item.name === nav ? 'bg-white text-primary shadow-md' : 'text-white hover:bg-white hover:bg-opacity-75',
+												item.current ? 'bg-white text-primary shadow-md' : 'text-white hover:bg-white hover:bg-opacity-75',
 												'group flex items-center rounded-3xl px-4 py-2 text-xs font-semibold'
 											)}
 										>
 											<item.icon className="mr-3 h-5 w-5 flex-shrink-0 text-primary-300" aria-hidden="true" />
 											{item.name}
-											{item.name === nav &&
+											{item.current &&
 												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="w-3 h-3 ml-auto">
 													<path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
 												</svg>}
@@ -205,7 +213,7 @@ export default function Example() {
 					</div>
 				</div>
 				<div className="flex flex-1 flex-col lg:pl-72">
-					<div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow-lg lg:bg-transparent lg:shadow-transparent">
+					<div className="sticky top-0 z-50 flex h-16 flex-shrink-0 bg-white shadow-lg lg:bg-transparent lg:shadow-transparent">
 						<button
 							type="button"
 							className="px-2 pl-4 text-gray-500 focus:outline-none lg:hidden hover:text-primary focus:text-primary"
@@ -297,13 +305,17 @@ export default function Example() {
 							</div>
 						</div>
 					</div>
-
-					<main className="flex-1 pr-4">
-						{nav === 'Log In'
-							? <Login />
-							: <Doctors />
-						}
-					</main>
+					{navigation.map(item => {
+						return (item.current &&
+							<main key={item.name} className="flex-1 sm:pr-4">
+								<div className="py-3">
+									<div className="p-4 text-center">
+										<h1 className="text-2xl font-bold text-gray-900">{item.title}</h1>
+									</div>
+									<item.component />
+								</div>
+							</main>)
+					})}
 				</div>
 			</div >
 		</>
