@@ -13,6 +13,7 @@ import DoctorsComponent from '../doctorsComponent/DoctorsComponent';
 import RequestsComponent from '../requestComponent/RequestsComponent';
 import DataComponent from '../dataComponent/dataComponent';
 import OffersComponent from '../offersComponent/OffersComponent';
+import CAEComponent from '../c&eComponent/CAEComponent';
 
 const userNavigation = [
 	{ name: 'Sign out', href: '/' },
@@ -25,9 +26,9 @@ function classNames(...classes) {
 export default function Example() {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 	const [navigation, setNavigation] = useState([
-		{ name: 'Log In', href: '#', icon: HiOutlineTemplate, current: true, title: 'Login In Creation', component: LoginComponent },
+		{ name: 'Log In', href: '#', icon: HiOutlineTemplate, current: true, title: 'Log In Creation', component: LoginComponent },
 		{ name: 'Doctors', href: '#', icon: HiOutlineUser, current: false, title: 'Doctors', component: DoctorsComponent },
-		{ name: 'Company & Employee', href: '#', icon: HiOutlineUser, current: false, title: 'Company & Employee', component: DoctorsComponent },
+		{ name: 'Company & Employee', href: '#', icon: HiOutlineUser, current: false, title: 'Company & Employee', component: CAEComponent },
 		{ name: 'Request', href: '#', icon: MdChatBubbleOutline, current: false, title: 'Mail Request', component: RequestsComponent },
 		{ name: 'Data', href: '#', icon: MdChatBubbleOutline, current: false, title: 'Deleted Employees & Doctors', component: DataComponent },
 		{ name: 'Offers', href: '#', icon: AiOutlineExclamationCircle, current: false, title: 'Upload Offers', component: OffersComponent },
@@ -307,7 +308,7 @@ export default function Example() {
 					</div>
 					{navigation.map(item => {
 						return (item.current &&
-							<main key={item.name} className="flex-1 sm:pr-4">
+							<main key={item.name} className="flex-1 sm:pr-6">
 								<div className="py-3">
 									<div className="p-4 text-center">
 										<h1 className="text-2xl font-bold text-gray-900">{item.title}</h1>
