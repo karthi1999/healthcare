@@ -109,7 +109,7 @@ export default function Example() {
 														item.current
 															? 'bg-gray-100 text-gray-900'
 															: 'text-white hover:bg-gray-50 hover:text-gray-900',
-														'group flex items-center rounded-md px-2 py-2 text-base font-medium'
+														'group flex items-center rounded-md px-2 py-2 text-base font-medium cursor-pointer'
 													)}
 												>
 													<item.icon
@@ -182,7 +182,7 @@ export default function Example() {
 											onClick={() => handleClick(item)}
 											className={classNames(
 												item.current ? 'bg-white text-primary shadow-md' : 'text-white hover:bg-white hover:bg-opacity-75',
-												'group flex items-center rounded-3xl px-4 py-2 text-xs font-semibold'
+												'group flex items-center rounded-3xl px-4 py-2 text-xs font-semibold cursor-pointer'
 											)}
 										>
 											<item.icon className="mr-3 h-5 w-5 flex-shrink-0 text-primary-300" aria-hidden="true" />

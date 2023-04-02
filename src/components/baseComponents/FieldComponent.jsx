@@ -19,19 +19,24 @@ const FieldComponent = (
             labelClassName = '',
             fieldClassName = '',
             label = '',
+            placeholder = '',
         } = fieldData
         const [hide, setHide] = useState(true);
         switch (type) {
             case 'text':
                 return (
                     <div className={`${className}`}>
-                        <Label htmlFor={id} className={`block text-sm font-normal leading-6 text-gray-900 ${labelClassName}`}>{label}</Label>
+                        {
+                            label ?
+                                <Label htmlFor={id} className={`block text-sm font-normal leading-6 text-gray-900 ${labelClassName}`}>{label}</Label> : ''
+                        }
                         <div className="mt-2 rounded-md shadow-sm">
                             <Input
                                 id={id}
                                 type={type}
                                 name={name}
                                 className={`block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 ${fieldClassName}`}
+                                placeholder={placeholder}
                             />
                         </div>
                     </div>
@@ -39,13 +44,17 @@ const FieldComponent = (
             case 'password':
                 return (
                     <div className={`${className}`}>
-                        <Label htmlFor={id} className={`block text-sm font-normal leading-6 text-gray-900 ${labelClassName}`}>{label}</Label>
+                        {
+                            label ?
+                                <Label htmlFor={id} className={`block text-sm font-normal leading-6 text-gray-900 ${labelClassName}`}>{label}</Label> : ''
+                        }
                         <div className="mt-2 relative rounded-md shadow-sm">
                             <Input
                                 id={id}
                                 type={`${hide ? 'password' : 'text'}`}
                                 name={name}
                                 className={`block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 ${fieldClassName}`}
+                                placeholder={placeholder}
                             />
                             {
                                 hide ?
@@ -64,7 +73,10 @@ const FieldComponent = (
             case 'textArea':
                 return (
                     <div className={`${className}`}>
-                        <Label htmlFor={id} className={`block text-sm font-normal leading-6 text-gray-900 ${labelClassName}`}>{label}</Label>
+                        {
+                            label ?
+                                <Label htmlFor={id} className={`block text-sm font-normal leading-6 text-gray-900 ${labelClassName}`}>{label}</Label> : ''
+                        }
                         <div className="mt-2 rounded-md shadow-sm">
                             <TextArea
                                 id={id}
@@ -72,6 +84,7 @@ const FieldComponent = (
                                 rows={3}
                                 className={`block w-full rounded-md border-0 py-1.5 pl-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 ${fieldClassName}`}
                                 defaultValue={''}
+                                placeholder={placeholder}
                             />
                         </div>
                     </div>
@@ -79,7 +92,10 @@ const FieldComponent = (
             case 'uploadImage':
                 return (
                     <div className={`${className}`}>
-                        <Label htmlFor={id} className={`block text-sm font-normal leading-6 text-gray-900 ${labelClassName}`}>{label}</Label>
+                        {
+                            label ?
+                                <Label htmlFor={id} className={`block text-sm font-normal leading-6 text-gray-900 ${labelClassName}`}>{label}</Label> : ''
+                        }
                         <div
                             className="w-2/4 h-40 lg:h-48 xl:h-56 mt-2 flex justify-center items-center rounded-lg bg-black bg-opacity-10 border-gray-900/25 relative"
                             htmlFor="file-upload">

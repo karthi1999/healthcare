@@ -2,9 +2,10 @@ import React from 'react'
 
 const Input = ({
     type,
-    name='',
+    name = '',
     id,
-    className='',
+    className = '',
+    placeholder = '',
 }) => {
     return (
         <input
@@ -12,6 +13,7 @@ const Input = ({
             name={name}
             id={id}
             className={`${className}`}
+            placeholder={placeholder}
         />
     )
 }
